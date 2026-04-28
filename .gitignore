@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+.env
+mumz_env/
+venv/
+output/
+Test.jpg
