@@ -1,0 +1,122 @@
+[
+  {
+    "id": "P001",
+    "name": "UPPAbaby Vista V2 Stroller",
+    "name_ar": "عربة أطفال UPPAbaby Vista V2",
+    "price_aed": 749,
+    "category": "strollers",
+    "age_range": "0-3 years",
+    "tags": ["stroller", "newborn", "travel"],
+    "description": "Full-featured stroller with bassinet mode for newborns.",
+    "description_ar": "عربة أطفال متعددة الوظائف مع وضع المهد للمواليد.",
+    "images": ["images/P001_1.jpg", "images/P001_2.jpg"]
+  },
+  {
+    "id": "P002",
+    "name": "Maxi-Cosi Pebble Pro Car Seat",
+    "name_ar": "مقعد سيارة ماكسي كوزي",
+    "price_aed": 380,
+    "category": "car seats",
+    "age_range": "0-12 months",
+    "tags": ["car seat", "newborn", "safety"],
+    "description": "Rear-facing infant car seat with safety protection.",
+    "description_ar": "مقعد سيارة آمن للرضع يواجه للخلف.",
+    "images": ["images/P002_1.jpg", "images/P002_2.jpg"]
+  },
+  {
+    "id": "P003",
+    "name": "Medela Breast Pump",
+    "name_ar": "مضخة حليب ميديلا",
+    "price_aed": 320,
+    "category": "feeding",
+    "age_range": "newborn",
+    "tags": ["breast pump", "feeding"],
+    "description": "Electric breast pump with portable design.",
+    "description_ar": "مضخة حليب كهربائية محمولة.",
+    "images": ["images/P003_1.jpg", "images/P003_2.jpg"]
+  },
+  {
+    "id": "P004",
+    "name": "Philips Avent Bottle Set",
+    "name_ar": "طقم زجاجات فيليبس أفنت",
+    "price_aed": 89,
+    "category": "feeding",
+    "age_range": "0-12 months",
+    "tags": ["bottle", "feeding"],
+    "description": "Baby bottle set with anti-colic design.",
+    "description_ar": "زجاجات حليب بتصميم مضاد للمغص.",
+    "images": ["images/P004_1.jpg", "images/P004_2.jpg"]
+  },
+  {
+    "id": "P005",
+    "name": "Fisher-Price Baby Bouncer",
+    "name_ar": "كرسي هزاز للأطفال",
+    "price_aed": 145,
+    "category": "bouncers",
+    "age_range": "0-6 months",
+    "tags": ["bouncer", "newborn"],
+    "description": "Comfortable baby bouncer with soothing vibrations.",
+    "description_ar": "كرسي مريح للرضع مع اهتزاز مهدئ.",
+    "images": ["images/P005_1.jpg", "images/P005_2.jpg"]
+  },
+  {
+    "id": "P006",
+    "name": "Toy Set",
+    "name_ar": "مكعبات ليغو دوبلو",
+    "price_aed": 120,
+    "category": "toys",
+    "age_range": "1-5 years",
+    "tags": ["toy", "learning"],
+    "description": "Educational toy blocks for toddlers.",
+    "description_ar": "مكعبات تعليمية للأطفال.",
+    "images": ["images/P006_1.jpg", "images/P006_2.jpg"]
+  },
+  {
+    "id": "P007",
+    "name": "Aveeno Baby Lotion",
+    "name_ar": "لوشن أفينو للأطفال",
+    "price_aed": 45,
+    "category": "skincare",
+    "age_range": "0-3 years",
+    "tags": ["skincare", "baby"],
+    "description": "Gentle lotion for sensitive baby skin.",
+    "description_ar": "لوشن لطيف لبشرة الأطفال.",
+    "images": ["images/P007_1.jpg", "images/P007_2.jpg"]
+  },
+  {
+    "id": "P008",
+    "name": "Baby Onesie Set",
+    "name_ar": "ملابس أطفال حديثي الولادة",
+    "price_aed": 75,
+    "category": "clothing",
+    "age_range": "0-3 months",
+    "tags": ["clothing", "newborn"],
+    "description": "Soft cotton baby clothes set.",
+    "description_ar": "ملابس قطنية ناعمة للأطفال.",
+    "images": ["images/P008_1.jpg", "images/P008_2.jpg"]
+  },
+  {
+    "id": "P009",
+    "name": "Baby Cot",
+    "name_ar": "سرير أطفال",
+    "price_aed": 199,
+    "category": "nursery",
+    "age_range": "0-3 years",
+    "tags": ["cot", "sleep"],
+    "description": "Wooden baby cot for safe sleeping.",
+    "description_ar": "سرير خشبي آمن للأطفال.",
+    "images": ["images/P013_1.jpg", "images/P013_2.jpg"]
+  },
+  {
+    "id": "P010",
+    "name": "Baby Carrier",
+    "name_ar": "حمالة أطفال",
+    "price_aed": 460,
+    "category": "baby gear",
+    "age_range": "0-4 years",
+    "tags": ["carrier", "travel"],
+    "description": "Ergonomic baby carrier for daily use.",
+    "description_ar": "حمالة مريحة للأطفال.",
+    "images": ["images/P010_1.jpg", "images/P010_2.jpg"]
+  }
+]
