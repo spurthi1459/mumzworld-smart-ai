@@ -20,5 +20,5 @@ def describe_image(image_bytes):
     except Exception as e:
         print("VISION ERROR:", e)
 
-        # ✅ fallback (VERY IMPORTANT)
+       
         return "baby product"

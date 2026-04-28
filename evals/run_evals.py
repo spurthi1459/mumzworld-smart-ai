@@ -1,7 +1,7 @@
 import sys
 import os
 
-# Fix import path
+
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from backend.pipeline import get_response
@@ -27,7 +27,7 @@ def evaluate():
             for p in products
         ]).lower()
 
-        # 🔥 score calculation (instead of strict pass/fail)
+        # score calculation
         matched = sum(1 for keyword in expected if keyword in product_tags)
 
         if len(expected) == 0:
@@ -37,7 +37,7 @@ def evaluate():
 
         total_score += score
 
-        # 🔥 classification (clean output)
+        # classification
         if score == 1.0:
             status = "PASS"
         elif score >= 0.5:

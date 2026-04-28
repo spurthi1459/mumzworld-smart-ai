@@ -3,11 +3,10 @@ import os
 from dotenv import load_dotenv
 from backend.prompts import SYSTEM_PROMPT
 
-# Load API key
+
 load_dotenv()
 genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 
-# ✅ Stable model (works with old SDK)
 model = genai.GenerativeModel("models/gemini-pro")
 
 

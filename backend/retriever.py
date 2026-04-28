@@ -20,7 +20,7 @@ def load_data():
     return products, embeddings
 
 
-# 🔥 IMPROVED RETRIEVER (HYBRID)
+# RETRIEVER
 def retrieve(query, top_k=3):
     model = load_model()
     products, embeddings = load_data()
@@ -36,24 +36,24 @@ def retrieve(query, top_k=3):
     for i, product in enumerate(products):
         score = sim_scores[i]  # base score
 
-        # 🔥 Combine text fields
+        #  Combine text fields
         text = (
             product.get("name", "") + " " +
             product.get("description", "") + " " +
             " ".join(product.get("tags", []))
         ).lower()
 
-        # 🔥 Keyword match boost
+        #  Keyword match boost
         for word in query_lower.split():
             if word in text:
                 score += 0.2
 
-        # 🔥 Tag boost (strong signal)
+        #  Tag boost (strong signal)
         for tag in product.get("tags", []):
             if tag in query_lower:
                 score += 0.5
 
-        # 🔥 Intent rules
+        #  Intent rules
         if "cheap" in query_lower or "under" in query_lower:
             if product.get("price_aed", 9999) <= 100:
                 score += 0.7
