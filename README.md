@@ -27,6 +27,12 @@ Built using **RAG (Retrieval-Augmented Generation)** with semantic search and op
   - Works even without LLM
   - Handles unknown queries safely
 
+- **Multilingual Support (English & Arabic)**
+  - Displays product names and descriptions in both English and Arabic
+  - Enhances accessibility for a broader user base
+  - Leverages multilingual product metadata without requiring translation APIs
+- 
+
 ---
 
 ##  Architecture
@@ -48,6 +54,54 @@ Final Response + UI Display
 ```
 
 ---
+
+### Tools Used
+
+- **Sentence Transformers (all-MiniLM-L6-v2)**  
+  Used for generating semantic embeddings for both queries and products.
+
+- **Scikit-learn (cosine similarity)**  
+  Used to compute similarity scores between query and product embeddings.
+
+- **Streamlit**  
+  Used to quickly build an interactive UI for both text and image-based search.
+
+- **Gemini API (optional LLM layer)**  
+  Used to generate natural language recommendations. The system includes fallback logic to remain functional without it.
+
+- **NumPy**  
+  Used for efficient embedding storage and vector operations.
+
+---
+
+### Workflow
+
+1. **Data Preparation**  
+   Created a structured dataset with product metadata, tags, and multilingual fields.
+
+2. **Embedding Generation**  
+   Precomputed product embeddings using Sentence Transformers and stored them for fast retrieval.
+
+3. **Query Processing**  
+   - Text input is directly encoded  
+   - Image input is converted into a semantic query  
+
+4. **Retrieval Layer**  
+   Combined semantic similarity with rule-based scoring (tags, price, intent).
+
+5. **Response Generation**  
+   Used an optional LLM to generate user-friendly responses with fallback handling.
+
+6. **Evaluation**  
+   Built a custom evaluation pipeline to measure retrieval quality using keyword-based scoring.
+
+---
+
+### Design Philosophy
+
+- Prefer **robust systems over API dependency**
+- Combine **semantic + rule-based retrieval** for better accuracy
+- Ensure **graceful degradation** when LLM fails
 
 ##  Project Structure
 
