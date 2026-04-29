@@ -27,5 +27,5 @@ def call_llm(query, products):
     except Exception as e:
         print("LLM Error:", e)
 
-        # ✅ Fallback response (VERY IMPORTANT)
+        # Fallback response
         return "Here are some recommended products based on your search."

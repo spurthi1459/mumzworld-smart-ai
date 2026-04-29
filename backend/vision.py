@@ -1,24 +1,53 @@
-import google.generativeai as genai
-import os
-from dotenv import load_dotenv
+from PIL import Image
+import io
+import torch
+import clip
 
-load_dotenv()
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+# Load CLIP model
+device = "cuda" if torch.cuda.is_available() else "cpu"
+model, preprocess = clip.load("ViT-B/32", device=device)
 
-model = genai.GenerativeModel("models/gemini-pro")
+# Predefined product categories
+CATEGORIES = [
+    "baby stroller",
+    "baby carrier",
+    "baby toy",
+    "baby bottle",
+    "baby skincare",
+    "baby bouncer",
+    "baby monitor",
+    "baby play mat"
+]
 
 
 def describe_image(image_bytes):
     try:
-        response = model.generate_content([
-            "Describe this product briefly for shopping search",
-            {"mime_type": "image/jpeg", "data": image_bytes}
-        ])
+        # Convert bytes to image
+        image = Image.open(io.BytesIO(image_bytes)).convert("RGB")
 
-        return response.text
+        # Preprocess image
+        image_input = preprocess(image).unsqueeze(0).to(device)
+
+        # Encode image
+        with torch.no_grad():
+            image_features = model.encode_image(image_input)
+
+        # Encode text labels
+        text_inputs = torch.cat([clip.tokenize(c) for c in CATEGORIES]).to(device)
+
+        with torch.no_grad():
+            text_features = model.encode_text(text_inputs)
+
+        # Compute similarity
+        similarity = (image_features @ text_features.T).softmax(dim=-1)
+
+        # Get best match
+        index = similarity.argmax().item()
+
+        return CATEGORIES[index]
 
     except Exception as e:
-        print("VISION ERROR:", e)
+        print("Vision error:", e)
 
-       
+        # Safe fallback
         return "baby product"

@@ -7,8 +7,7 @@ st.set_page_config(page_title="AI Gift Finder", layout="wide")
 
 st.title("🛍️ AI Gift Finder for Moms")
 
-
-# -------- IMAGE FIX FUNCTION --------
+# IMAGE DISPLAY FUNCTION
 def show_images(image_list):
     cols = st.columns(len(image_list))
 
@@ -19,22 +18,45 @@ def show_images(image_list):
             if os.path.exists(img_path):
                 image = Image.open(img_path)
 
-                # ✅ FORCE SAME SIZE (clean UI)
+                # uniform size for clean UI
                 image = image.resize((180, 180))
 
                 cols[i].image(image)
             else:
-                cols[i].write("❌ Missing")
+                cols[i].write(" Missing")
 
-        except:
-            cols[i].write("❌ Error")
+        except Exception:
+            cols[i].write("Error")
 
 
-# Tabs
+# PRODUCT DISPLAY FUNCTION
+def show_product(p):
+    col1, col2 = st.columns([1, 2])
+
+    with col1:
+        show_images(p["images"])
+
+    with col2:
+        # English + Arabic name
+        st.markdown(f"### {p['name']}  \n**{p.get('name_ar', '')}**")
+
+        st.write(f"💰 {p['price_aed']} AED")
+
+        # English description
+        st.write(p["description"])
+
+        # Arabic description (smaller + subtle)
+        if p.get("description_ar"):
+            st.markdown(f"<div style='color:gray'>{p['description_ar']}</div>", unsafe_allow_html=True)
+
+        st.divider()
+
+
+# TABS
 tab1, tab2 = st.tabs(["Text Search", "Image Search"])
 
 
-# ---------------- TEXT SEARCH ----------------
+# TEXT SEARCH
 with tab1:
     query = st.text_input("Ask for a product...")
 
@@ -47,18 +69,10 @@ with tab1:
         st.subheader("🛒 Suggested Products")
 
         for p in result["products"]:
-            col1, col2 = st.columns([1, 2])
-
-            with col1:
-                show_images(p["images"])
-
-            with col2:
-                st.write(f"### {p['name']}")
-                st.write(f"💰 {p['price_aed']} AED")
-                st.write(p["description"])
+            show_product(p)
 
 
-# ---------------- IMAGE SEARCH ----------------
+# IMAGE SEARCH
 with tab2:
     uploaded_file = st.file_uploader("Upload product image", type=["jpg", "png"])
 
@@ -73,12 +87,4 @@ with tab2:
         st.subheader("🛒 Suggested Products")
 
         for p in result["products"]:
-            col1, col2 = st.columns([1, 2])
-
-            with col1:
-                show_images(p["images"])
-
-            with col2:
-                st.write(f"### {p['name']}")
-                st.write(f"💰 {p['price_aed']} AED")
-                st.write(p["description"])
+            show_product(p)
