@@ -5,6 +5,11 @@ An AI-powered product recommendation system that helps moms find the right baby 
 Built using **RAG (Retrieval-Augmented Generation)** with semantic search and optional LLM enhancement.
 
 ---
+## 🎥 Demo Video
+
+Watch the 3-minute walkthrough here:
+
+👉 https://www.loom.com/share/1eec033668454096bf3d6f8cdbb63b0f
 
 ##  Features
 
